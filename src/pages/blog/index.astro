@@ -1,0 +1,47 @@
+---
+import MainLayout from "../../layouts/MainLayout.astro";
+import PostCard from "../../components/PostCard.astro";
+
+// Get all posts and sort by date
+const allPosts = await Astro.glob("./*.md");
+allPosts.sort((a, b) => new Date(b.frontmatter.date).getTime() - new Date(a.frontmatter.date).getTime());
+---
+
+<MainLayout title="Blog | Kiran Foundation">
+    {/* Hero Section */}
+    <div class="bg-gradient-to-r from-orange-500 to-orange-700 py-20 text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Our Blog</h1>
+            <p class="text-xl text-orange-100 max-w-2xl mx-auto">Stories of impact, transformation, and community building from Kiran Foundation</p>
+        </div>
+    </div>
+
+    <div class="container mx-auto px-4 py-12">
+        {/* Posts Grid */}
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {allPosts.map(post => (
+                <PostCard post={post} />
+            ))}
+        </div>
+
+        {/* Newsletter Section */}
+        <div class="mt-20 bg-orange-50 rounded-lg p-12 text-center">
+            <h2 class="text-3xl font-bold text-gray-900 mb-4">Stay Updated</h2>
+            <p class="text-gray-600 mb-8 max-w-2xl mx-auto">Subscribe to our newsletter to receive the latest updates, stories, and insights from Kiran Foundation.</p>
+            <form class="max-w-md mx-auto flex gap-4">
+                <input 
+                    type="email" 
+                    placeholder="Enter your email" 
+                    class="flex-1 px-4 py-2 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                    required
+                />
+                <button 
+                    type="submit" 
+                    class="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 transition-colors font-medium"
+                >
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </div>
+</MainLayout>

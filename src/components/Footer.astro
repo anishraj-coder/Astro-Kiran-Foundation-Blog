@@ -1,0 +1,92 @@
+---
+const programs = [
+  { name: 'किरण प्रतिभा', href: '/pratibha' },
+  { name: 'किरण शक्ति', href: '/shakti' },
+  { name: 'Pratibha', href: '/pratibha' },
+  { name: 'Shakti', href: '/shakti' }
+];
+
+const getInvolved = [
+  { name: 'Volunteers / Internship', href: '/volunteers' },
+  { name: 'Contact', href: '/contact' },
+ 
+  { name: 'About Us', href: '/About' }
+];
+
+const contactInfo = [
+  { icon: 'envelope', text: 'info@kiran.foundation', href: 'mailto:info@kiran.foundation' },
+  { icon: 'phone', text: '+91 93039 97100', href: 'tel:+919303997100' },
+  { icon: 'phone', text: '+91 9880 141412', href: 'tel:+919880141412' }
+];
+
+const footerLinks = [
+  { name: 'Privacy Policy', href: '/privacy' },
+  { name: 'Terms', href: '/terms' },
+  { name: 'Contact', href: '/contact' }
+];
+---
+
+<footer class="bg-gradient-to-r from-orange-100 mt-10 to-orange-50 text-gray-800 py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
+      {/* About Section */}
+      <div class="space-y-4 col-span-1 lg:col-span-2">
+        <h2 class="text-3xl font-bold text-orange-600">KIRAN FOUNDATION</h2>
+        <p class="text-sm leading-relaxed">
+          If a hardworking, talented youth can not fulfill his/her dreams due to a lack of resources, it is the failure of the whole society. We dream of a society where merit and hard work are supported irrespective of financial, physical, or social status.
+        </p>
+        <div class="flex flex-col space-y-2">
+          {contactInfo.map(contact => (
+            <a 
+              href={contact.href} 
+              class="flex items-center space-x-2 hover:text-orange-600 transition-colors"
+            >
+              <i class={`fas fa-${contact.icon}`}></i>
+              <span>{contact.text}</span>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* Quick Links */}
+      <div class="space-y-4">
+        <h3 class="text-xl font-semibold text-orange-600">Our Programs</h3>
+        <ul class="space-y-2">
+          {programs.map(program => (
+            <li>
+              <a href={program.href} class="hover:text-orange-600 transition-colors">
+                {program.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      {/* Get Involved */}
+      <div class="space-y-4">
+        <h3 class="text-xl font-semibold text-orange-600">Get Involved</h3>
+        <ul class="space-y-2">
+          {getInvolved.map(item => (
+            <li>
+              <a href={item.href} class="hover:text-orange-600 transition-colors">
+                {item.name}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    {/* Bottom Bar */}
+    <div class="pt-6 border-t border-orange-200 text-sm text-center md:flex md:justify-between md:text-left">
+      <p>Copyright © Kiran Social Foundation</p>
+      <div class="mt-4 md:mt-0 space-x-4">
+        {footerLinks.map(link => (
+          <a href={link.href} class="hover:text-orange-600 transition-colors">
+            {link.name}
+          </a>
+        ))}
+      </div>
+    </div>
+  </div>
+</footer>

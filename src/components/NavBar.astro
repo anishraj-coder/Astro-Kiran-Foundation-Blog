@@ -1,0 +1,69 @@
+---
+---
+<nav class="bg-black shadow-lg">
+  <div class="container mx-auto px-4">
+    <div class="flex justify-between items-center py-5">
+      {/* Logo */}
+      <div class="flex items-center">
+       <a href="/"> <img 
+        src="https://www.kiran.foundation/branding/logo_home.png" 
+        alt="Kiran Foundation Logo" 
+        class="h-16 w-auto mr-20"
+      /></a>
+        <div class="flex flex-col justify-center">
+          <span class="text-3xl font-g-bold text-white leading-tight">KIRAN</span>
+          <span class="text-gray-400 font-g-medium">FOUNDATION</span>
+        </div>
+      </div>
+
+      {/* Mobile Menu Button */}
+      <button 
+        id="mobile-menu-button" 
+        class="md:hidden text-gray-400 hover:text-white focus:outline-none"
+        aria-label="Toggle menu"
+      >
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+
+      {/* Desktop Menu */}
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="/pratibha" class="text-gray-400 hover:text-white transition-colors">Pratibha</a>
+        <a href="/shakti" class="text-gray-400 hover:text-white transition-colors">Shakti</a>
+        <a href="/contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+        <a 
+          href="https://www.kiran.foundation/donate/" target="_blank" rel="noopener"
+          class="bg-orange-600 text-white px-6 py-2 rounded-full hover:bg-orange-700 transition-colors"
+        >
+          Donate
+        </a>
+      </div>
+    </div>
+
+    {/* Mobile Menu */}
+    <div id="mobile-menu" class="hidden md:hidden pb-4">
+      <div class="flex flex-col space-y-3">
+        <a href="/pratibha" class="text-gray-400 hover:text-white transition-colors">Pratibha</a>
+        <a href="/shakti" class="text-gray-400 hover:text-white transition-colors">Shakti</a>
+        <a href="/contact" class="text-gray-400 hover:text-white transition-colors">Contact</a>
+        <a 
+          href="/donate" 
+          class="bg-orange-600 text-white px-6 py-2 rounded-full hover:bg-orange-700 transition-colors text-center"
+        >
+          Donate
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  mobileMenuButton?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>

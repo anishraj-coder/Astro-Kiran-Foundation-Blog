@@ -1,0 +1,113 @@
+---
+import {slugify} from '../js/utils'
+import MainLayout from "./MainLayout.astro";
+const { frontmatter } = Astro.props;
+const { title, description, author, image, date, category, draft } = frontmatter;
+
+// Format date
+const formattedDate = new Date(date).toLocaleDateString('en-US', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+});
+---
+
+<MainLayout title={title}>
+    <header class="relative w-full">
+        {/* Hero Image Section */}
+        <div class="relative h-[60vh] w-full overflow-hidden">
+            <img 
+                src={image?.src || '/images/image-default.jpg'} 
+                alt={image?.alt || title}
+                class="w-full h-full object-cover block"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent z-10"></div>
+        </div>
+
+        {/* Content Overlay */}
+        <div class="container mx-auto px-4 relative -mt-40 mb-8 z-20">
+            <div class="bg-white rounded-lg shadow-xl p-8">
+                {/* Category Badge */}
+                <div class="mb-4">
+                    <a 
+                        href={`/category/${slugify(category)}`}
+                        class="inline-block bg-orange-100 text-orange-800 text-sm font-medium px-3 py-1 rounded-full hover:bg-orange-200 transition-colors"
+                    >
+                        {category}
+                    </a>
+                </div>
+
+                {/* Title */}
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4 leading-tight">{title}</h1>
+
+                {/* Description */}
+                {description && (
+                    <p class="text-xl text-gray-600 mb-6 leading-relaxed">{description}</p>
+                )}
+
+                {/* Author and Date */}
+                <div class="flex items-center justify-between text-sm text-gray-600 border-t border-gray-100 pt-4">
+                    <a 
+                        href={`/author/${slugify(author)}`}
+                        class="flex items-center hover:text-orange-600 transition-colors group"
+                    >
+                        <span class="font-medium group-hover:text-orange-700">{author}</span>
+                    </a>
+                    <time datetime={date} class="font-light italic">
+                        {formattedDate}
+                    </time>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container mx-auto px-4 py-8">
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            {/* Main Content */}
+            <article class="lg:col-span-2 prose prose-lg max-w-none prose-headings:text-gray-900 prose-headings:font-bold prose-h1:text-4xl prose-h2:text-3xl prose-h3:text-2xl prose-h4:text-xl prose-h5:text-lg prose-h6:text-base prose-p:text-gray-700 prose-p:leading-relaxed prose-a:text-orange-600 prose-a:underline hover:prose-a:text-orange-700 prose-strong:text-orange-700 prose-em:text-orange-600 prose-blockquote:border-l-4 prose-blockquote:border-orange-500 prose-blockquote:bg-orange-50 prose-blockquote:py-2 prose-blockquote:px-6 prose-blockquote:rounded-r-lg prose-code:bg-gray-100 prose-code:text-orange-700 prose-code:px-1 prose-code:rounded prose-pre:bg-gray-900 prose-pre:text-gray-100 prose-pre:rounded-lg prose-ul:list-disc prose-ol:list-decimal prose-li:marker:text-orange-500 prose-table:rounded-lg prose-th:bg-orange-100 prose-th:text-orange-800 prose-td:bg-white prose-img:rounded-lg prose-hr:border-gray-200">
+                <slot />
+            </article>
+
+            {/* Sidebar */}
+            <aside class="space-y-8 lg:sticky lg:top-8">
+                {/* Share Links */}
+                <div class="bg-gray-50 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-4">Share this post</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-600 hover:text-blue-500 transition-colors">
+                            <span class="sr-only">Share on Twitter</span>
+                            <i class="fab fa-twitter text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-700 transition-colors">
+                            <span class="sr-only">Share on Facebook</span>
+                            <i class="fab fa-facebook text-xl"></i>
+                        </a>
+                        <a href="#" class="text-gray-600 hover:text-blue-600 transition-colors">
+                            <span class="sr-only">Share on LinkedIn</span>
+                            <i class="fab fa-linkedin text-xl"></i>
+                        </a>
+                    </div>
+                </div>
+
+                {/* Newsletter Signup */}
+                <div class="bg-orange-50 rounded-lg p-6">
+                    <h3 class="text-lg font-semibold text-gray-900 mb-2">Stay Updated</h3>
+                    <p class="text-gray-600 text-sm mb-4">Get the latest updates from Kiran Foundation</p>
+                    <form class="space-y-3">
+                        <input 
+                            type="email" 
+                            placeholder="Enter your email" 
+                            class="w-full px-4 py-2 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent"
+                        />
+                        <button 
+                            type="submit" 
+                            class="w-full bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-700 transition-colors font-medium"
+                        >
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </aside>
+        </div>
+    </div>
+</MainLayout>

@@ -1,0 +1,57 @@
+---
+import MainLayout from "../layouts/MainLayout.astro";
+
+const helpfulLinks = [
+  { name: 'Home', href: '/' },
+  { name: 'About Us', href: '/about' },
+  { name: 'Contact', href: '/contact' },
+  { name: 'Donate', href: '/donate' }
+];
+---
+
+<MainLayout title="Page Not Found - Kiran Foundation">
+  <div class="min-h-[70vh] flex items-center justify-center px-4 py-16">
+    <div class="text-center">
+      <div class="flex flex-col items-center">
+        {/* 404 Icon */}
+        <div class="text-orange-600 mb-4">
+          <svg class="w-24 h-24" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path 
+              stroke-linecap="round" 
+              stroke-linejoin="round" 
+              stroke-width="1.5" 
+              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+            />
+          </svg>
+        </div>
+
+        {/* Error Message */}
+        <h1 class="text-6xl font-bold text-gray-900 mb-4">404</h1>
+        <h2 class="text-3xl font-semibold text-gray-800 mb-2">Page Not Found</h2>
+        <p class="text-gray-600 mb-8 max-w-md">
+          We're sorry, but the page you're looking for seems to have taken a different path. Let's help you find your way back.
+        </p>
+
+        {/* Helpful Links */}
+        <div class="space-y-4">
+          <h3 class="text-lg font-medium text-gray-800">You might want to check these pages:</h3>
+          <div class="flex flex-wrap justify-center gap-4">
+            {helpfulLinks.map(link => (
+              <a 
+                href={link.href}
+                class="px-6 py-2 bg-gray-100 hover:bg-gray-200 text-gray-800 rounded-full transition-colors"
+              >
+                {link.name}
+              </a>
+            ))}
+          </div>
+        </div>
+
+        {/* Contact Support */}
+        <div class="mt-12 text-gray-600">
+          <p>Still need help? <a href="mailto:info@kiran.foundation" class="text-orange-600 hover:text-orange-700">Contact our support team</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>
