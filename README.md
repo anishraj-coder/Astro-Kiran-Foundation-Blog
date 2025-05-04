@@ -1,16 +1,32 @@
-# Astro Starter Kit: Minimal
+# Kiran Foundation Website Project
 
-```sh
-npm create astro@latest -- --template minimal
-```
+## Internship Selection Assignment
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
+![Kiran Foundation Logo](public/images/image-default.jpg)
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 📋 Project Overview
 
-## 🚀 Project Structure
+This project is a responsive website for the Kiran Foundation, developed as part of the internship selection process. The website showcases the foundation's mission, programs, and impact while providing an intuitive user experience and modern design.
+
+## 🚀 Features
+
+- **Responsive Design**: Fully responsive layout that works on mobile, tablet, and desktop devices
+- **Dynamic Blog System**: Complete blog functionality with category and author filtering
+- **Program Pages**: Dedicated pages for Kiran Foundation's key initiatives (Pratibha, Shakti, Inclusive Sports)
+- **Contact Form**: Interactive contact form with validation
+- **Google Maps Integration**: Location map embedded in the contact page
+- **Legal Pages**: Privacy Policy and Terms of Service pages
+- **Social Media Integration**: Links to the foundation's social media profiles
+
+## 💻 Technologies Used
+
+- **[Astro](https://astro.build/)**: Core framework for building the website
+- **[Tailwind CSS](https://tailwindcss.com/)**: Utility-first CSS framework for styling
+- **TypeScript**: For type safety and better developer experience
+- **Markdown**: For blog content management
+- **Font Awesome**: For icons throughout the website
+
+## 🏗️ Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
 
