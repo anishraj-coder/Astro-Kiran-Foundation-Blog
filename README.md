@@ -2,7 +2,8 @@
 
 ## Internship Selection Assignment
 
-![Kiran Foundation Logo](public/images/image-default.jpg)
+<!-- Replace with your preferred image -->
+![Kiran Foundation](public/images/image-default.jpg)
 
 ## 📋 Project Overview
 
